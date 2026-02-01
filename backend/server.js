@@ -10,7 +10,14 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cors());
+app.use(
+    cors({
+        origin: [
+            "https://fit-track-pro-adhi-cs.vercel.app"
+        ],
+        credentials: true
+    })
+);
 app.use('/uploads', express.static(require('path').join(__dirname, 'uploads')));
 
 // Database Connection
